@@ -16,19 +16,29 @@ Germán A. Gómez
 
 <b>Tipos de usuarios</b>
 <ul>
-    <li>Usuario alumno: puede elegir una carrera, agregar estado de cursada, agregar opiniones.</li>
-    <li>Adminsitrador: puede agregar carreras y materias al sistema.</li>
+    <li><b>Usuario alumno</b>: puede elegir una carrera, agregar estado de cursada, agregar opiniones.</li>
+    <li><b>Adminsitrador</b>: puede agregar carreras y materias al sistema.</li>
 </ul>
     
 <b>Modelos: </b>
 <ul>
-    <li>Usuarios: dos tipos (alumnos y admin)</li>
-    <li>Materias: código, nombre, duración (cuatrimestral/anual)</li>
-    <li>Carreras: código, nombre, duración (en años)</li>
-    <li>Historial materias: alumno, materia, final</li>
-    <li>Correlativas: materia, materia requerida, tipo (fuerte/blanca), requiere (cursada/final)</li> 
-    <li>Opiniones: materia, alumno, profesor, claridad (al explicar), carisma, predisposición (a ayudar), dificultad, comentario</li>
+    <li><b>Usuarios</b>: dos tipos (alumnos y admin)</li>
+    <li><b>Materias</b>: código, nombre, nombre, profesor, foto profesor, duración (cuatrimestral/anual)</li>
+    <li><b>Carreras</b>: código, nombre, duración (en años)</li>
+    <li><b>Historial materias</b>: alumno, materia, final</li>
+    <li><b>Correlativas</b>: materia, materia requerida, tipo (fuerte/blanca), requiere (cursada/final)</li> 
+    <li><b>Opiniones</b>: materia, alumno, claridad (al explicar), carisma, predisposición (a ayudar), dificultad, comentario</li>
 </ul>
+
+
+Posibles modificaciones en caso de ser excesivo lo planteado:
+<ul>
+    <li>No crear las vistas de crear carreras y carga de correlativas. Los datos serian cargados a través de los seeders. (Podrían crearse las vistas posterioremnte en react)</li>
+    <li>No crear las vistas de opiones. (Podrían crearse las vistas posterioremnte en react)</li>
+</ul>
+
+
+
 
 
 
