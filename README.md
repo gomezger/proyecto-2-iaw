@@ -1,4 +1,4 @@
-# Proyecto 2:  sistema de historial de cursadas y opiniones en Laravel
+# Proyecto 2: historial de cursadas y opiniones en Laravel
 Germán A. Gómez
 
 <ol>
