@@ -14,7 +14,7 @@ Germán A. Gómez
 </ol>
 
 
-<b>Tipos de usuarios<b>
+<b>Tipos de usuarios</b>
 <ul>
     <li>Usuario alumno: puede elegir una carrera, agregar estado de cursada, agregar opiniones.</li>
     <li>Adminsitrador: puede agregar carreras y materias al sistema.</li>
