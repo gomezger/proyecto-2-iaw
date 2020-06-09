@@ -18,7 +18,7 @@ Germán A. Gómez
 <ul>
     <li>Usuario alumno: puede elegir una carrera, agregar estado de cursada, agregar opiniones.</li>
     <li>Adminsitrador: puede agregar carreras y materias al sistema.</li>
-<ul>
+</ul>
     
 <b>Modelos: </b>
 <ul>
