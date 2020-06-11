@@ -27,15 +27,20 @@ Germán A. Gómez
     <li><b>Opiniones</b>: materia, alumno, claridad (al explicar), carisma, predisposición (a ayudar), dificultad, comentario</li>
 </ul>
 
+<b>Consideraciones Generales (para etapa 3)</b>
+<ul>
+    <li>Solo se pueden crear opiniones en esta etapa por lo cual las "vistas" donde se ven todas las opiniones están pensadas para hacerse en la etapa 3.</li>
+    <li>Mostrar gráficos con datos de cuantos alumnos hay en cada año, etc.</li>
+</ul>
 
 Posibles modificaciones en caso de ser excesivo lo planteado:
 <ul>
-    <li>No crear las vistas de crear carreras y carga de correlativas. Los datos serian cargados a través de los seeders. (Podrían crearse las vistas posterioremnte en react)</li>
-    <li>No crear las vistas de opiones. (Podrían crearse las vistas posterioremnte en react)</li>
+    <li>El adminsitrador no carga carreras (se crean por seeders). Por lo cual solo crearia materías con sus respectivs correlativas.</li>
+    <li>Otra opción sería eliminar el apartado de opiniones y agregar otra carateristica en la etapa 3.</li>
 </ul>
 
-
-
-
-
-
+Posibles modificaciones en caso de faltar cosas:
+<ul>
+    <li>Agregar un modelo "profesor" y separarlo del modelo "materias". Originalmente lo habia pensado así pero realice la simplificación para achicar el proyecto</li>
+    <li>El administrador puede eliminar opiniones</li>
+</ul>
