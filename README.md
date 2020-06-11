@@ -27,15 +27,15 @@ Germán A. Gómez
     <li><b>Opiniones</b>: materia, alumno, claridad (al explicar), carisma, predisposición (a ayudar), dificultad, comentario</li>
 </ul>
 
-<b>Consideraciones Generales (para etapa 3)</b>
+<b>Etapa 3:</b>
 <ul>
-    <li>Solo se pueden crear opiniones en esta etapa por lo cual las "vistas" donde se ven todas las opiniones están pensadas para hacerse en la etapa 3.</li>
+    <li>En la etapa 2 solo se pueden crear opiniones por lo cual las "vistas" donde se ven todas están pensadas para hacerse en la etapa 3.</li>
     <li>Mostrar gráficos con datos de cuantos alumnos hay en cada año, etc.</li>
 </ul>
 
 Posibles modificaciones en caso de ser excesivo lo planteado:
 <ul>
-    <li>El adminsitrador no carga carreras (se crean por seeders). Por lo cual solo crearia materías con sus respectivs correlativas.</li>
+    <li>El adminstrador no carga carreras (se crean por seeders). Por lo cual solo crearia materías con sus respectivs correlativas.</li>
     <li>Otra opción sería eliminar el apartado de opiniones y agregar otra carateristica en la etapa 3.</li>
 </ul>
 
