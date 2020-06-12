@@ -44,4 +44,4 @@ Posibles modificaciones en caso de faltar cosas:
 <ul>
     <li>Agregar un modelo "profesor" y separarlo del modelo "materias". Originalmente lo habia pensado así pero realice la simplificación para achicar el proyecto</li>
     <li>El administrador puede eliminar opiniones</li>
-</ul>
+</ul> 
