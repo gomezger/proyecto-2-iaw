@@ -17,9 +17,7 @@ class CreateMateriasTable extends Migration
 
             $table->string('codigo');
             $table->string('nombre');
-            $table->string('profesor');
-            $table->binary('profesor_imagen');	
-
+            
             $table->primary('codigo');
 
             $table->timestamps();

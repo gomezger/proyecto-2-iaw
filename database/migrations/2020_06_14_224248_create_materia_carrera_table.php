@@ -4,7 +4,7 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-class CreateHistorialTable extends Migration
+class CreateMateriaCarreraTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,22 +13,19 @@ class CreateHistorialTable extends Migration
      */
     public function up()
     {
-        Schema::create('historial', function (Blueprint $table) {
-
+        Schema::create('materia_carrera', function (Blueprint $table) {
             $table->id();
-            $table->string('alumno');
             $table->string('materia');
-            $table->float('final')->nullable();
-            
+            $table->string('carrera');
+            $table->integer('anio');
 			
             $table->foreign('materia')
 			  ->references('codigo')->on('materias')
 			  ->onDelete('restrict');			  
 
-            $table->foreign('alumno')
-            ->references('email')->on('users')
+            $table->foreign('carrera')
+            ->references('codigo')->on('carreras')
             ->onDelete('restrict');			  
-
 
             $table->timestamps();
         });
@@ -41,6 +38,6 @@ class CreateHistorialTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('historial');
+        Schema::dropIfExists('materia_carrera');
     }
 }

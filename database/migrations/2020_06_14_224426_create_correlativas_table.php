@@ -4,7 +4,7 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-class CreateAlumnoTable extends Migration
+class CreateCorrelativasTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,8 +13,12 @@ class CreateAlumnoTable extends Migration
      */
     public function up()
     {
-        Schema::create('alumno', function (Blueprint $table) {
+        Schema::create('correlativas', function (Blueprint $table) {
             $table->id();
+            $table->string('materia');
+            $table->string('requerida');
+            $table->boolean('fuerte'); //si es falso solo, es blanda
+            $table->boolean('final'); //si es falso solo, es de cursada
             $table->timestamps();
         });
     }
@@ -26,6 +30,6 @@ class CreateAlumnoTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('alumno');
+        Schema::dropIfExists('correlativas');
     }
 }
