@@ -20,7 +20,15 @@ class CreateCorrelativasTable extends Migration
             $table->boolean('fuerte'); //si es falso solo, es blanda
             $table->boolean('final'); //si es falso solo, es de cursada
             $table->timestamps();
+
+
+            $table->foreign('materia')
+            ->references('codigo')->on('materias')
+            ->onDelete('restrict');	
+
         });
+
+        
     }
 
     /**

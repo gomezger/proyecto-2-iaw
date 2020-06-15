@@ -17,6 +17,7 @@ class CreateMateriasTable extends Migration
 
             $table->string('codigo');
             $table->string('nombre');
+            $table->integer('cuatrimestre');
             
             $table->primary('codigo');
 

@@ -24,12 +24,6 @@ class CreateUsersTable extends Migration
             $table->rememberToken();
             $table->binary('image')->nullable();	
             $table->string('status')->default('alumno');
-            $table->string('carrera')->nullable();	
-  
-
-            $table->foreign('carrera')
-            ->references('codigo')->on('carreras')
-            ->onDelete('restrict');	
 
             $table->timestamps();
         });
