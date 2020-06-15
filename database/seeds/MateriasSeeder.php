@@ -47,9 +47,6 @@ class MateriasSeeder extends Seeder
         # Quinto año
         $this->agregarMateria(5523,'Algoritmos y complejidad  ', 9);
         $this->agregarMateria(7680,'Ingeniería de Aplicaciones Web', 9);
-        $this->agregarMateria('OP35','Optativa I', 9);
-        $this->agregarMateria('OP36','Optativa II', 10);
-        $this->agregarMateria(5979,'Tesis de Licenciatura ', 10);
 
     }
 
@@ -57,6 +54,7 @@ class MateriasSeeder extends Seeder
         DB::table('materias')->insert([
             'codigo' => $codigo,
             'nombre' => $nombre,
+            'profesor' => Str::random(5).' '.Str::random(10), 
             'cuatrimestre' => $cuatri,
             'created_at' => now(),
             'updated_at' => now()

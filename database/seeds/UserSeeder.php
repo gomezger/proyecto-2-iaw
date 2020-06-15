@@ -19,7 +19,7 @@ class UserSeeder extends Seeder
         
         $this->agregarUsuario('Adrian', 'germang08@hotmail.com', Hash::make('1234'), 'alumno');
 
-        $this->agregarUsuario('Germán Gómez', 'germang48@gmail.com', Hash::make('1234'), 'admin');
+        $this->agregarUsuario('Germán Gómez', 'germang04@gmail.com', Hash::make('1234'), 'admin');
         
     }
 

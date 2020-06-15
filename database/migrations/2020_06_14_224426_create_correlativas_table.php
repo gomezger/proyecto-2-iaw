@@ -17,13 +17,21 @@ class CreateCorrelativasTable extends Migration
             $table->id();
             $table->string('materia');
             $table->string('requerida');
-            $table->boolean('fuerte'); //si es falso solo, es blanda
-            $table->boolean('final'); //si es falso solo, es de cursada
+            $table->string('tipo'); // para cursasa o aprobado
+            $table->string('condicion'); // si tiene que estar cursada o aprobada
             $table->timestamps();
 
 
             $table->foreign('materia')
             ->references('codigo')->on('materias')
+            ->onDelete('restrict');	
+
+            $table->foreign('tipo')
+            ->references('nombre')->on('correlativas_estados')
+            ->onDelete('restrict');	
+
+            $table->foreign('condicion')
+            ->references('nombre')->on('correlativas_estados')
             ->onDelete('restrict');	
 
         });

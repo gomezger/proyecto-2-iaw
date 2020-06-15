@@ -4,7 +4,7 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-class CreateMateriasTable extends Migration
+class CreateCorrelativasEstadosTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,16 +13,9 @@ class CreateMateriasTable extends Migration
      */
     public function up()
     {
-        Schema::create('materias', function (Blueprint $table) {  
-
-            $table->string('codigo');
+        Schema::create('correlativas_estados', function (Blueprint $table) {
             $table->string('nombre');
-            $table->string('profesor');            
-            $table->binary('profesor_imagen')->nullable();
-            $table->integer('cuatrimestre');
-            
-            $table->primary('codigo');
-
+            $table->primary('nombre');
             $table->timestamps();
         });
     }
@@ -34,6 +27,6 @@ class CreateMateriasTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('materias');
+        Schema::dropIfExists('correlativas_estados');
     }
 }
