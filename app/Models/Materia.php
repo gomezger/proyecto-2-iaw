@@ -12,7 +12,7 @@ class Materia extends Model
 
 
     public function correlativas(){
-        return $this->hasMany('App\Models\Correlativa','codigo','codigo');
+        return $this->hasMany('App\Models\Correlativa','materia','codigo');
     }
 
 

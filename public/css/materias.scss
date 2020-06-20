@@ -1,0 +1,82 @@
+
+.materias {
+    padding: 0 !important;
+}
+
+.materias .anio{
+    background-color: #3a87ad;
+    border-radius: 4px;
+    color: #EEE;
+    font-size: 22px;
+}
+
+.materias .cuatri{
+    margin-top: 4px;
+    background-color: #e5ebee;
+    border-radius: 4px;
+    color: rgb(27, 27, 27);
+    font-size: 15px;
+}
+
+.materias .materia{
+    margin: 10px 0;
+}
+
+.materias .materia .col{
+    padding: 0 !important;
+}
+
+.materias .materia .col .icon{
+    display: inline-block;
+}
+
+.materias .materia .nota{
+    padding: 0 10px !important;
+    margin: 0 2%;
+    width: 44%;
+    text-align: center;
+    color: #EFEFEF;
+    display: inline-block;
+    overflow: hidden;
+}
+
+.materias .materia .verde{
+	background-color: green;
+}
+
+.materias .materia .rojo{
+	background-color: #ba4545;
+}
+
+
+@media only screen and (max-width: 1410px) {    
+}
+
+@media only screen and (max-width: 1199px) { 
+}
+
+@media only screen and (max-width: 991px) {	
+    .materias .materia{
+        padding: 0 5px !important;
+    }
+    .materias .materia .codigo{
+        font-size: 10px !important;
+        padding-top: 0.5px !important;
+        display: none;
+    }
+    .materias .materia .col{
+        font-size: 13px;
+        padding-right: 5px !important;
+    }
+    
+}
+
+@media only screen and (max-width: 768px) {    
+}
+
+@media only screen and (max-width: 575px) {
+}
+
+@media only screen and (max-width: 360px) {
+}
+

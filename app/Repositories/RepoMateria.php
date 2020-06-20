@@ -11,9 +11,19 @@ class RepoMateria {
      *
      * @return array arreglo de materias
      */
-    public static function all(): array{
-        return Materia::all()->load('correlativas');
+    public static function all(){
+        return Materia::orderBy('cuatrimestre', 'ASC')->get(); //->load('correlativas');
     }
+
+    public static function findByCuatri(){
+        $cuatris = array();
+
+        for($i=0; $i<10; $i++){
+            $cuatris[$i] = Materia::where('cuatrimestre','=',($i+1))->orderBy('cuatrimestre', 'ASC')->get(); 
+        }
+        return $cuatris;
+    }
+
 
     /**
      * Crea una materia con los datos recibidos en $data
