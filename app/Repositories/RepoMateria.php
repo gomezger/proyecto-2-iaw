@@ -15,11 +15,22 @@ class RepoMateria {
         return Materia::orderBy('cuatrimestre', 'ASC')->get(); //->load('correlativas');
     }
 
-    public static function findByCuatri(){
+
+    /**
+     * Retorna un arreglo de arreglos. Cada sub arreglo tiene las materias de un cuatrimestre. El indice del subarrreglo coincide cn su cuatrimestre 
+     *
+     * @return array arreglo de arreglo que tiene materias
+     */
+    public static function findByCuatri(): array{
         $cuatris = array();
 
         for($i=0; $i<10; $i++){
-            $cuatris[$i] = Materia::where('cuatrimestre','=',($i+1))->orderBy('cuatrimestre', 'ASC')->get(); 
+            $cuatris[$i] = Materia::where('cuatrimestre','=',($i+1))
+                                    ->orderBy('cuatrimestre', 'ASC')
+                                    ->get()
+                                    ->load('correlativas_cursadas_cursadas')
+                                    ->load('correlativas_cursadas_aprobadas')
+                                    ->load('correlativas_aprobadas_aprobadas'); 
         }
         return $cuatris;
     }
@@ -35,20 +46,17 @@ class RepoMateria {
         return Materia::create($data);
     }
 
-    /**
-     * Actualiza una materia si existe
-     *
-     * @param array $data datos necesiarios para actualizar la materia
-     * @param string $id código de la materia
-     * @return Materia Retorna la materia editada. Si no existe retorna null
-     */
-    public static function update(array $data, string $id): Materia{
+
+    public static function update(array $data, string $id): bool{
         $materia = self::find($id);
+
+        if(isset($data['profesor_foto']) && is_null($data['profesor_foto']))
+            unset($data['profesor_foto']);
 
         if(!is_null($materia))
             return $materia->update($data);
 
-        return null;
+        return false;
     }
 
     /**
@@ -70,7 +78,7 @@ class RepoMateria {
      * @return Materia materia con codigo $id
      */
     public static function find(string $id): Materia{
-        return Materia::find($id)->load('correlativas');
+        return Materia::find($id)->load('correlativas_cursadas_cursadas','correlativas_cursadas_aprobadas','correlativas_aprobadas_aprobadas');
     }
 
 

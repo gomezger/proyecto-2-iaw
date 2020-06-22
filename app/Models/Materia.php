@@ -11,8 +11,14 @@ class Materia extends Model
     protected $fillable = [ 'codigo', 'nombre', 'profesor', 'profesor_imagen', 'cuatrimestre' ];
 
 
-    public function correlativas(){
-        return $this->hasMany('App\Models\Correlativa','materia','codigo');
+    public function correlativas_cursadas_cursadas(){
+        return $this->hasMany('App\Models\Correlativa','materia','codigo')->where('tipo', 'cursada')->where('condicion','cursada');
+    }
+    public function correlativas_cursadas_aprobadas(){
+        return $this->hasMany('App\Models\Correlativa','materia','codigo')->where('tipo', 'cursada')->where('condicion','aprobada');
+    }
+    public function correlativas_aprobadas_aprobadas(){
+        return $this->hasMany('App\Models\Correlativa','materia','codigo')->where('tipo', 'aprobada')->where('condicion','aprobada');
     }
 
 

@@ -19,5 +19,21 @@ use Illuminate\Support\Facades\Route;
  */
 Auth::routes();
 
-Route::get('/', 'HomeController@index')->name('home');
+# para cursadas
+Route::get('/cursada/{codigo}', 'MateriasController@agregarCursada')->name('agregar-cursada');
+Route::get('/cursada/eliminar/{codigo}', 'MateriasController@eliminarCursada')->name('eliminar-cursada');
+
+# para finales
+Route::get('/final/{codigo}/{nota}', 'MateriasController@agregarFinal')->name('agregar-final');
+Route::get('/final/eliminar/final/{codigo}', 'MateriasController@eliminarFinal')->name('eliminar-final');
+
+# para materias
+Route::get('/', 'MateriasController@index')->name('materias');
+Route::post('/agregar-materia', 'PanelController@agregarMateria')->name('agregar-materia');
+Route::post('/editar-materia/{codigo}', 'PanelController@editarMateria')->name('editar-materia');
+Route::get('/materia/eliminar/{codigo}', 'PanelController@deleteMateria')->name('eliminar-materia');
+
+# panel
+Route::get('/panel-materias', 'PanelController@materias')->name('panel-materias');
+
 

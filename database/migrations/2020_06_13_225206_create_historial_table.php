@@ -17,17 +17,19 @@ class CreateHistorialTable extends Migration
 
             $table->id();
             $table->string('alumno');
-            $table->string('materia');
+            $table->integer('materia')->unsigned()->nullable();
             $table->float('final')->nullable();
             
 			
             $table->foreign('materia')
 			  ->references('codigo')->on('materias')
-			  ->onDelete('restrict');			  
+			  ->onDelete('cascade')			  
+			  ->onUpdate('cascade');			  
 
             $table->foreign('alumno')
             ->references('email')->on('users')
-            ->onDelete('restrict');			  
+            ->onDelete('cascade')		  
+            ->onUpdate('cascade');			  
 
 
             $table->timestamps();

@@ -30,7 +30,7 @@ class MateriasSeeder extends Seeder
         # Tercer año
         $this->agregarMateria(5534,'Análisis y diseño de sistemas ', 5);
         $this->agregarMateria(5561,'Arquitectura de computadoras', 5);
-        $this->agregarMateria(5704,'Lógica para Ciencias de la Computación', 4);
+        $this->agregarMateria(5704,'Lógica para Ciencias de la Computación', 5);
         $this->agregarMateria(7552,'Bases de Datos', 6);
         $this->agregarMateria(7810,'Métodos de Computación Científica', 6);
         $this->agregarMateria(7820,'Modelos Estadísticos para Cs. de la Computación', 6);

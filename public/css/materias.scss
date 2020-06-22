@@ -41,11 +41,40 @@
 }
 
 .materias .materia .verde{
-	background-color: green;
+	background-color: rgb(0, 99, 0);
 }
-
+.materias .materia .azul{
+	background-color: rgb(0, 98, 128);
+}
 .materias .materia .rojo{
 	background-color: #ba4545;
+}
+
+
+.correlativas{
+    background-color: #EEE;
+    padding: 10px !important;
+}
+
+.correlativas .table{
+    background-color: #FFF !important;
+}
+
+.nota-modal{
+	font-size: 20px;
+	background-color: #ABC;
+	border-radius: 10px;
+	color: #FFF;
+	padding: 10px 20px;
+    margin: 10px 2px;
+    display: inline-block;
+}
+
+.nota-modal:hover{
+    transition: 0.5s;
+	background-color: rgb(15, 75, 134);
+    color: #FFF;
+    text-decoration: none;
 }
 
 
@@ -67,6 +96,11 @@
     .materias .materia .col{
         font-size: 13px;
         padding-right: 5px !important;
+    }
+    .materias .materia .nota{
+        padding: 0 3px !important;
+        width: 44%;
+        font-size: 11px;
     }
     
 }

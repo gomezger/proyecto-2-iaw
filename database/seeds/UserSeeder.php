@@ -30,18 +30,18 @@ class UserSeeder extends Seeder
                 'name' => Str::random(10),
                 'email' => Str::random(10).'@gmail.com',
                 'password' => Hash::make('password1234'),
-                'status' => 'alumno',
+                'rol' => 'alumno',
                 'created_at' => now(),
                 'updated_at' => now()
             ]);
     }
 
-    private function agregarUsuario(string $nombre, string $email, string $password, string $status): void{
+    private function agregarUsuario(string $nombre, string $email, string $password, string $rol): void{
         DB::table('users')->insert([
             'name' => $nombre,
             'email' => $email,
             'password' => $password,
-            'status' => $status,
+            'rol' => $rol,
             'created_at' => now(),
             'updated_at' => now()
         ]);

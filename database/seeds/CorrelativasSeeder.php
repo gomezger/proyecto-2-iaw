@@ -1,6 +1,7 @@
 <?php
 
 use Illuminate\Database\Seeder;
+use App\Repositories\RepoMateria;
 
 class CorrelativasSeeder extends Seeder
 {
@@ -25,7 +26,7 @@ class CorrelativasSeeder extends Seeder
         #tercero
         $this->agregar(5534,[7951],[7655],[],[7951,7655]); # ayds
         $this->agregar(5561,[5744],[7791],[],[5744,7791]); # arqui
-        $this->agregar(5704,[7751],[7949],[],[7951,7951]); # logica
+        $this->agregar(5704,[7951],[7949],[],[7951,7951]); # logica
         $this->agregar(7552,[5704,5534],[],[],[5704,5534]); # bases de datos
         $this->agregar(7810,[5552],[7791,7655],[],[5552,7791,7655]); # mcc
         $this->agregar(7820,[7791],[5551,5793],[],[7791,5551,5793]); # estadsitica
@@ -51,19 +52,23 @@ class CorrelativasSeeder extends Seeder
 
         foreach($cc as $requerida)
             $this->agregarCorrelativa($materia, $requerida, 'cursada', 'cursada');
-        foreach($cc as $requerida)
-            $this->agregarCorrelativa($materia, $requerida, 'cursada', 'aprobar');
-        foreach($cc as $requerida)
-            $this->agregarCorrelativa($materia, $requerida, 'aprobar', 'cursada');
-        foreach($cc as $requerida)
-            $this->agregarCorrelativa($materia, $requerida, 'aprobar', 'aprobar');
+        foreach($ca as $requerida)
+            $this->agregarCorrelativa($materia, $requerida, 'cursada', 'aprobada');
+        foreach($ac as $requerida)
+            $this->agregarCorrelativa($materia, $requerida, 'aprobada', 'cursada');
+        foreach($aa as $requerida)
+            $this->agregarCorrelativa($materia, $requerida, 'aprobada', 'aprobada');
 
     }    
 
     private function agregarCorrelativa(string $materia, string $requerida, string $tipo, string $condicion): void {
+
+        $materia_aux = RepoMateria::find($requerida);
+
         DB::table('correlativas')->insert([
             'materia' => $materia,
             'requerida' => $requerida,
+            'requerida_nombre' => $materia_aux->nombre,
             'tipo' => $tipo,
             'condicion' => $condicion,
             'created_at' => now(),

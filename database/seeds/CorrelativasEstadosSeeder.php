@@ -12,7 +12,7 @@ class CorrelativasEstadosSeeder extends Seeder
     public function run()
     {
         $this->add('cursada');
-        $this->add('aprobar');
+        $this->add('aprobada');
     }
 
 
