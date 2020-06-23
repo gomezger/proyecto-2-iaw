@@ -32,7 +32,11 @@
                             <th scope="row">{{$materia->codigo}}</th>
                             <td>{{$materia->nombre}}</td>
                             <td>{{$materia->profesor}}</td>
-                            <td>prox</td>
+                            <td>                                
+                                <div class="imagen-profesor">
+                                    <img class="col-12 p-0" src="data:image/jpeg;base64,{{$materia->profesor_imagen}}">
+                                </div>
+                            </td>
                             <td>{{$materia->cuatrimestre}}</td>
                             <td>
                                 <a type="button" data-toggle="modal" data-target="#agregarCorrelativaModal-{{$materia->codigo}}" title="agregar correlativa" class="mr-2" href="#"><i class="fas fa-plus"></i></a>
@@ -42,9 +46,9 @@
                             </td>
                         </tr>
 
+                        @include('panel/agregar-correlativa',["materia"=>$materia, "materias" => $materias])
                         @include('panel/editar-materia',["materia"=>$materia])
                         @include('panel/correlativas',["materia"=>$materia])
-                        @include('panel/agregar-correlativa',["materia"=>$materia, "materias" => $materias])
                     @endforeach
 
                 </tbody>

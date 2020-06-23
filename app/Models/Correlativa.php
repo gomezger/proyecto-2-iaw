@@ -7,7 +7,7 @@ use Illuminate\Database\Eloquent\Model;
 class Correlativa extends Model
 {
     protected $table = 'correlativas';
-    protected $fillable = [ 'materia', 'requerida', 'tipo', 'condicion'];
+    protected $fillable = [ 'materia', 'requerida','requerida_nombre', 'tipo', 'condicion'];
 
 
     public function materia(){

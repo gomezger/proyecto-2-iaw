@@ -40,9 +40,16 @@
                     
                     <div class="row ">
                         <div class="col-12">
-                            @if(count($materia->correlativas_cursadas_cursadas)==0 && count($materia->correlativas_cursadas_aprobadas)==0)
+                            @if(count($materia->correlativas_aprobadas_cursadas)==0 && count($materia->correlativas_aprobadas_aprobadas)==0)
                                 <div class="col-12">No hay materias requeridas</div>    
                             @else
+                                @foreach ($materia->correlativas_aprobadas_cursadas as $correlativa)   
+                                    <div class="row mb-2">
+                                        <div class="col-3">{{$correlativa->requerida}}</div>
+                                        <div class="col-6">{{$correlativa->requerida_nombre}}</div>
+                                        <div class="col-3">{{$correlativa->condicion}}</div>
+                                    </div>
+                                @endforeach
                                 @foreach ($materia->correlativas_aprobadas_aprobadas as $correlativa)   
                                     <div class="row mb-2">
                                         <div class="col-3">{{$correlativa->requerida}}</div>

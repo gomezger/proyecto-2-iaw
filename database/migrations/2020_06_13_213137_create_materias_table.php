@@ -18,7 +18,7 @@ class CreateMateriasTable extends Migration
             $table->integer('codigo')->unsigned()->nullable();
             $table->string('nombre')->unique();
             $table->string('profesor');            
-            $table->binary('profesor_imagen')->nullable();
+            $table->text('profesor_imagen')->nullable();
             $table->integer('cuatrimestre');
             
             $table->primary('codigo');

@@ -7,13 +7,7 @@ use App\Models\Correlativa;
 class RepoCorrelativa {
 
     
-
-    public static function all(): array{
-        return Correlativa::all()->load('materia','requerida');
-    }
-
-
-    public static function create(array  $data): Correlativa{
+    public static function create(array  $data){
         return Correlativa::create($data);
     }
 

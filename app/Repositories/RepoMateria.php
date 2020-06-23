@@ -50,8 +50,9 @@ class RepoMateria {
     public static function update(array $data, string $id): bool{
         $materia = self::find($id);
 
-        if(isset($data['profesor_foto']) && is_null($data['profesor_foto']))
-            unset($data['profesor_foto']);
+        if(is_null($data['profesor_imagen'])) {
+            unset($data['profesor_imagen']);
+        }
 
         if(!is_null($materia))
             return $materia->update($data);
@@ -78,7 +79,7 @@ class RepoMateria {
      * @return Materia materia con codigo $id
      */
     public static function find(string $id): Materia{
-        return Materia::find($id)->load('correlativas_cursadas_cursadas','correlativas_cursadas_aprobadas','correlativas_aprobadas_aprobadas');
+        return Materia::find($id)->load('correlativas_cursadas_cursadas','correlativas_cursadas_aprobadas','correlativas_aprobadas_aprobadas','correlativas_aprobadas_cursadas');
     }
 
 

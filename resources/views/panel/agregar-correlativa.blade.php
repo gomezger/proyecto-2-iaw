@@ -10,10 +10,10 @@
             </div>
             <div class="modal-body">
                 
-                <form method="POST" action="{{route('editar-materia',$materia->codigo)}}" enctype="multipart/form-data">
+                <form method="POST" action="{{route('agregar-correlativa')}}" enctype="multipart/form-data">
                     {!! csrf_field() !!}
 
-                    @if($errors->any() && old('codigo')==$materia->codigo)
+                    @if($errors->any() && old('agregar-correlativa-'.$materia->codigo.''))
 
                         <script>    
                             document.addEventListener("DOMContentLoaded", function(event) {
@@ -33,36 +33,46 @@
                     @endif
 
                     <div class="form-row">
+                        <div class="form-group col-md-12">
+                            <label for="inputMateria">Matería</label>
+                            <select name="materia" class="custom-select" id="inlineFormCustomSelectPref" readonly required>
+                                <option value="{{ $materia->codigo }}" selected>({{ $materia->codigo }}) {{ $materia->nombre }}</option>
+                            </select>
+                        </div>
+                    </div>
+
+                    <div class="form-row">
                         <div class="form-group col-md-6">
                             <label for="inputMateria">Tipo</label>
                             <select name="tipo" class="custom-select" id="inlineFormCustomSelectPref" required>
-
-                                <option selected>Elegir...</option>
-                                <option value="cursar" {{ (old("tipo") == 'cursar' ? "selected":"") }}>cursada</option>
-                                <option value="aprobar" {{ (old("tipo") == 'aprobar' ? "selected":"") }}>aprobada</option>
+                                <option value="" selected>Elegir...</option>
+                                <option value="cursada" {{ (old("tipo") == 'cursada' ? "selected":"") }}>Parar cusar</option>
+                                <option value="aprobada" {{ (old("tipo") == 'aprobada' ? "selected":"") }}>Para rendir final</option>
                             </select>
                         </div>
                         <div class="form-group col-md-6">
                             <label for="inputMateria">Condición</label>
                             <select name="condicion" class="custom-select" id="inlineFormCustomSelectPref" required>
-
-                                <option selected>Elegir...</option>
-                                <option value="cursar" {{ (old("condicion") == 'cursar' ? "selected":"") }}>cursada</option>
-                                <option value="aprobar" {{ (old("condicion") == 'aprobar' ? "selected":"") }}>aprobada</option>
+                                <option value="" selected>Elegir...</option>
+                                <option value="cursada" {{ (old("condicion") == 'cursar' ? "selected":"") }}>cursada</option>
+                                <option value="aprobada" {{ (old("condicion") == 'aprobar' ? "selected":"") }}>aprobada</option>
                             </select>
                         </div>
                     </div>
                     <div class="form-row">
                         <div class="form-group col-md-12">
-                            <label for="inputMateria">Matería</label>
-                            <select name="materia" class="custom-select" id="inlineFormCustomSelectPref" required>
+                            <label for="inputMateria">Requiere</label>
+                            <select name="requiere" class="custom-select" id="inlineFormCustomSelectPref" required>
 
-                                <option selected>Elegir...</option>
+                                <option value="" selected>Elegir...</option>
                                 @foreach ($materias as $m)
-                                    <option value="{{ $m->codigo }}" {{ (old("materia") == $m->codigo ? "selected":"") }}>({{ $m->codigo }}) {{ $m->nombre }}</option>
+                                    @if ($m->codigo!=$materia->codigo)
+                                        <option value="{{ $m->codigo }}" {{ (old("requiere") == $m->codigo ? "selected":"") }}>({{ $m->codigo }}) {{ $m->nombre }}</option>
+                                    @endif
                                 @endforeach
                             </select>
                         </div>
+                        <input name="agregar-correlativa-{{$materia->codigo}}" value="correlativa" type="hidden" />
                     </div>
 
 

@@ -31,9 +31,13 @@ Route::get('/final/eliminar/final/{codigo}', 'MateriasController@eliminarFinal')
 Route::get('/', 'MateriasController@index')->name('materias');
 Route::post('/agregar-materia', 'PanelController@agregarMateria')->name('agregar-materia');
 Route::post('/editar-materia/{codigo}', 'PanelController@editarMateria')->name('editar-materia');
-Route::get('/materia/eliminar/{codigo}', 'PanelController@deleteMateria')->name('eliminar-materia');
+Route::get('/materia/eliminar/{codigo}', 'PanelController@deleteMateria')->name('eliminar-materia')->middleware(['auth', 'password.confirm']);;
+
+#correlativas
+Route::post('/agregar-correlativa', 'PanelController@agregarCorrelativa')->name('agregar-correlativa');
+
 
 # panel
-Route::get('/panel-materias', 'PanelController@materias')->name('panel-materias');
+Route::get('/panel-materias', 'PanelController@materias')->name('panel-materias')->middleware(['auth', 'password.confirm']);
 
 
