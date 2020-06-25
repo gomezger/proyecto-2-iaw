@@ -6,7 +6,7 @@ use Illuminate\Auth\Middleware\Authenticate as Middleware;
 
 use Closure;
 
-class AdminAuthMiddleware extends Middleware
+class AdminAuthMiddleware extends Authenticate
 {
     /**
      * Handle an incoming request.
