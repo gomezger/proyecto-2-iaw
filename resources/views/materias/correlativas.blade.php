@@ -26,7 +26,7 @@
                         <td colspan="3">No hay materias requeridas</td>
                     </tr>
                 @else
-                    @include('materias/materia-correlativa', [ "correlativas" => $materia->correlativas_aprobadas_aprobadas])
+                    @include('materias/materia-correlativa', [ "correlativas" => $materia->correlativas_aprobadas_cursadas])
                     @include('materias/materia-correlativa', [ "correlativas" => $materia->correlativas_aprobadas_aprobadas])
                 @endif
             </tbody>
