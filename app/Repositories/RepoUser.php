@@ -5,6 +5,7 @@ namespace App\Repositories;
 use App\Models\User;
 use App\Models\Materia;
 use App\Repositories\RepoHistorial;
+use App\Repositories\RepoMaterial;
 
 class RepoUser {
     public $email;
@@ -14,7 +15,7 @@ class RepoUser {
     }
 
     public function puedeCursar($codigo){
-        $materia = Materia::find($codigo);
+        $materia = RepoMateria::find($codigo);
         
 
         if($materia!=[]){        
@@ -29,7 +30,7 @@ class RepoUser {
     }
     
     public function puedeRendir($codigo){
-        $materia = Materia::find($codigo);
+        $materia = RepoMateria::find($codigo);
 
         //verifico cursada
         if(!RepoHistorial::curso($this->email, $codigo))
@@ -72,6 +73,26 @@ class RepoUser {
         return RepoHistorial::findFinal($this->email, $codigo)->final;
     }
 
+    public function cursadas(){
+        $cursadas = array();
+        $materias = RepoMateria::all();
 
+        foreach($materias as $m)
+            if($this->curso($m->codigo)){
+                $hist = RepoHistorial::find($this->email, $m->codigo)->load('materia');
+                array_push($cursadas,$hist);
+            }
+        return $cursadas;
+    }
+    public function aprobadas(){
+        $aprobadas = array();
+        $materias = RepoMateria::all();
 
+        foreach($materias as $m)
+            if($this->aprobo($m->codigo)){
+                $hist = RepoHistorial::find($this->email, $m->codigo)->load('materia');
+                array_push($aprobadas,$hist);
+            }
+        return $aprobadas;
+    }
 }

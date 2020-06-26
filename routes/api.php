@@ -29,5 +29,6 @@ Route::group(['prefix' => 'auth'], function () {
 });
 
 Route::group(['middleware' => 'auth:api'], function() {
-    Route::post('prueba', 'ApiController@prueba');
+    Route::post('cursadas', 'ApiController@cursadas');
+    Route::post('aprobadas', 'ApiController@aprobadas');
 });
