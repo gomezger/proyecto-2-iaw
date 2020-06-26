@@ -5,7 +5,7 @@ namespace App\Repositories;
 use App\Models\User;
 use App\Models\Materia;
 use App\Repositories\RepoHistorial;
-use App\Repositories\RepoMaterial;
+use App\Repositories\RepoMateria;
 
 class RepoUser {
     public $email;
@@ -94,5 +94,9 @@ class RepoUser {
                 array_push($aprobadas,$hist);
             }
         return $aprobadas;
+    }
+
+    public function promedio(){
+        return RepoHistorial::allFinalesByAlumno($this->email)->avg('final');
     }
 }

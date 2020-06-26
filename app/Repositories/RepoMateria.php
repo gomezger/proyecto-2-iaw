@@ -12,7 +12,7 @@ class RepoMateria {
      * @return array arreglo de materias
      */
     public static function all(){
-        return Materia::orderBy('cuatrimestre', 'ASC')->get(); //->load('correlativas');
+        return Materia::orderBy('cuatrimestre', 'ASC')->get()->load('cantidadAlumnos'); 
     }
 
 
@@ -82,5 +82,11 @@ class RepoMateria {
         return Materia::find($id)->load('correlativas_cursadas_cursadas','correlativas_cursadas_aprobadas','correlativas_aprobadas_aprobadas','correlativas_aprobadas_cursadas');
     }
 
+    public static function promedio(string $codigo): float{
+        $promedio = RepoHistorial::allFinalesByMateria($codigo)->avg('final');
+        if(is_null($promedio))
+            return 0;
+        return $promedio;
+    }
 
 }

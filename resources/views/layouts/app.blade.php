@@ -14,7 +14,6 @@
     <!-- Scripts -->
     <script src="{{ asset('js/app.js') }}" defer></script>
     <script src="https://kit.fontawesome.com/591d68fa75.js" crossorigin="anonymous"></script>
-    @yield('scripts')
 
     <!-- Fonts -->
     <link rel="dns-prefetch" href="//fonts.gstatic.com">
@@ -32,13 +31,13 @@
         <main class="py-4">
             @yield('content')
         </main>
+
+        <div class="clearfix"></div>
         
         @include('componentes.footer')
 
-    </div>
+    </div>    
 
-
-    
-
+    @yield('scripts')
 </body>
 </html>

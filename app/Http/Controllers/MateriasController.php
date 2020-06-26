@@ -29,6 +29,14 @@ class MateriasController extends Controller
         return $this->vistaMaterias();
     }
 
+    public function agregarCursadaPost(Request $request){
+
+        $validatedData = $this->validate($request, [
+            "codigo" => 'integer|required|exists:materias'
+        ]);  
+
+        return $this->agregarCursada($request->input('codigo')); 
+    }
 
     public function agregarCursada($codigo){
 
@@ -37,9 +45,10 @@ class MateriasController extends Controller
         //verifico si puede cursar
         if($user->puedeCursar($codigo))
             RepoHistorial::insert($user->email, $codigo);
+        else
+             return redirect('/')->with("status-error","No cumple con las correlativas"); 
 
-        
-        return redirect()->route('materias');   
+        return redirect('/')->with("status-success","Cursada agregada");   
     }
     
 
@@ -55,14 +64,27 @@ class MateriasController extends Controller
         return redirect()->route('materias');  
     }
 
+    
+    public function agregarFinalPost(Request $request){
+
+        $validatedData = $this->validate($request, [
+            "codigo" => 'integer|required|exists:materias',
+            "nota" => 'integer|required|min:4|max:10'
+        ]);  
+
+        return $this->agregarFinal($request->input('codigo'),$request->input('nota')); 
+    }
+
     public function agregarFinal($codigo, $nota){
         $user = new RepoUser(Auth::user()->email);
 
         //verifico si puede rendir
         if($user->curso($codigo) && $user->puedeRendir($codigo))
             RepoHistorial::update($user->email, $codigo, $nota);
-        
-        return redirect()->route('materias');   
+        else
+            return redirect('/')->with("status-error","No cumple con las correlativas"); 
+
+       return redirect('/')->with("status-success","Final agregado");   
     }
     
     public function eliminarFinal($codigo){

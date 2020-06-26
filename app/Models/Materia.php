@@ -23,6 +23,4 @@ class Materia extends Model
     public function correlativas_aprobadas_aprobadas(){
         return $this->hasMany('App\Models\Correlativa','materia','codigo')->where('tipo', 'aprobada')->where('condicion','aprobada');
     }
-
-
 }

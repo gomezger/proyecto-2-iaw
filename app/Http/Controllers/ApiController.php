@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use App\Repositories\RepoUser;
+use App\Repositories\RepoHistorial;
 
 class ApiController extends Controller
 {
@@ -16,7 +17,7 @@ class ApiController extends Controller
             "cursadas" => $user->cursadas()
         );
 
-        return response()->json($data);
+        return response()->json($data,200);
     }
 
     public function aprobadas(){     
@@ -27,8 +28,37 @@ class ApiController extends Controller
             "aprobadas" => $user->aprobadas()
         );
 
-        return response()->json($data);
+        return response()->json($data,200);
     }
 
+    public function promedioAlumno(){     
+        $user = new RepoUser(Auth::user()->email);
 
+        $data = array(
+            "status" => "success",
+            "promedio" => $user->promedio()
+        );
+
+        return response()->json($data,200);
+    }
+
+    public function promedioMaterias(){           
+
+        $data = array(
+            "status" => "success",
+            "promedios" => RepoHistorial::promedios()
+        );
+
+        return response()->json($data,200);
+    }
+
+    public function cantidadAlumnos(){           
+
+        $data = array(
+            "status" => "success",
+            "promedios" => RepoHistorial::alumnos()
+        );
+
+        return response()->json($data,200);
+    }
 }

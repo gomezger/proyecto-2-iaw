@@ -21,10 +21,12 @@ Auth::routes();
 
 # para cursadas
 Route::get('/cursada/{codigo}', 'MateriasController@agregarCursada')->name('agregar-cursada');
+Route::post('/cursada/agregar-cursada', 'MateriasController@agregarCursadaPost')->name('agregar-cursada-post');
 Route::get('/cursada/eliminar/{codigo}', 'MateriasController@eliminarCursada')->name('eliminar-cursada');
 
 # para finales
 Route::get('/final/{codigo}/{nota}', 'MateriasController@agregarFinal')->name('agregar-final');
+Route::get('/final/agregar-final', 'MateriasController@agregarFinalPost')->name('agregar-final-post');
 Route::get('/final/eliminar/final/{codigo}', 'MateriasController@eliminarFinal')->name('eliminar-final');
 
 # para materias

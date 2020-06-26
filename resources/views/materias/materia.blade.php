@@ -35,6 +35,7 @@
 </div>
 
 
+
 <!-- Modal -->
 <div class="modal fade" id="profesorModal-{{$materia->codigo}}" tabindex="-1" role="dialog" aria-labelledby="profesorModal-{{$materia->codigo}}Title" aria-hidden="true">
     <div class="modal-dialog modal-dialog-centered" role="document">

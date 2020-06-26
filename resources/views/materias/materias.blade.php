@@ -2,8 +2,9 @@
 
 @section('content')
     <div class="container">
-        <div class="col-12 materias">
+        <div class="col-12 col-md-8 float-left materias">
            
+
             {{-- Recorro los cuatrimestre de la carrera --}}
             @for ($i = 0; $i < count($cuatris); $i++)
 
@@ -33,5 +34,9 @@
 
         </div>
 
+
+        {{-- Panel para agregar materias --}}
+        @include('materias.lateral', [ "cuatris" => $cuatris ])
+        
     </div>
 @endsection

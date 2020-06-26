@@ -5,6 +5,7 @@ namespace App\Repositories;
 use App\Models\User;
 use App\Models\Materia;
 use App\Models\Historial;
+use App\Repositories\RepoMateria;
 
 class RepoHistorial {
 
@@ -48,6 +49,19 @@ class RepoHistorial {
             print_r($materia->delete());
     }
 
+    public static function promedios(){
+        $promedios = array();
+        foreach(RepoMateria::all() as $materia){
+            array_push(
+                $promedios,
+                array(
+                    "materia" => $materia->nombre,
+                    "promedio" => RepoMateria::promedio($materia->codigo)
+                )
+            );
+        }
+        return $promedios;
+    }   
 
     public static function findCursada($email, $codigo){
         return Historial::where('alumno',$email)->where('materia',$codigo)->first();
@@ -55,6 +69,14 @@ class RepoHistorial {
 
     public static function findFinal($email, $codigo){
         return Historial::where('alumno',$email)->where('materia',$codigo)->whereNotNull('final')->first();
+    }
+
+    public static function allFinalesByAlumno($email){
+        return Historial::where('alumno',$email)->whereNotNull('final');
+    }
+
+    public static function allFinalesByMateria($codigo){
+        return Historial::where('materia',$codigo)->whereNotNull('final');
     }
 
     public static function find($email, $codigo){        
