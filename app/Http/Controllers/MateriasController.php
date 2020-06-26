@@ -88,7 +88,7 @@ class MateriasController extends Controller
             "2" => "Segundo",
             "3" => "Tercer",
             "4" => "Cuarto",
-            "5" => "Quitno"
+            "5" => "Quinto"
         ];
         
         $user = new RepoUser(Auth::user()->email);
