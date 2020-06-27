@@ -29,6 +29,12 @@ class MateriasController extends Controller
         return $this->vistaMaterias();
     }
 
+    /**
+     * Agrega una cursada al usuario logueado
+     *
+     * @param Request $request recibe a traves de un form-data el codigo de la materia
+     * @return view muestra la vista de las materias
+     */
     public function agregarCursadaPost(Request $request){
 
         $validatedData = $this->validate($request, [
@@ -38,21 +44,38 @@ class MateriasController extends Controller
         return $this->agregarCursada($request->input('codigo')); 
     }
 
-    public function agregarCursada($codigo){
+    /**
+     * Agrega una cursada al usuario logueado
+     *
+     * @param string $codigo recibe un parametro que es el codigo de la materia
+     * @return view muestra la vista de las materias
+     */
+    public function agregarCursada(string $codigo){
 
         $user = new RepoUser(Auth::user()->email);
 
-        //verifico si puede cursar
-        if($user->puedeCursar($codigo))
-            RepoHistorial::insert($user->email, $codigo);
+        if(!$user->curso($codigo))
+            
+            if($user->puedeCursar($codigo))
+                RepoHistorial::insert($user->email, $codigo);
+            else
+                return redirect('/')->with("status-error","No cumple con las correlativas"); 
+
         else
-             return redirect('/')->with("status-error","No cumple con las correlativas"); 
+            return redirect('/')->with("status-error","Ya cursó esta materia"); 
+
 
         return redirect('/')->with("status-success","Cursada agregada");   
     }
     
 
-    public function eliminarCursada($codigo){
+    /**
+     * Elimina una cursada al usuario logueado
+     *
+     * @param string $codigo recibe un parametro que es el codigo de la materia
+     * @return view muestra la vista de las materias
+     */
+    public function eliminarCursada(string $codigo){
 
         $user = new RepoUser(Auth::user()->email);
 
@@ -64,7 +87,12 @@ class MateriasController extends Controller
         return redirect()->route('materias');  
     }
 
-    
+    /**
+     * Agrega un final al usuario logueado
+     *
+     * @param Request $request recibe a traves de un form-data el codigo de la materia y su nota
+     * @return view muestra la vista de las materias
+     */
     public function agregarFinalPost(Request $request){
 
         $validatedData = $this->validate($request, [
@@ -75,19 +103,32 @@ class MateriasController extends Controller
         return $this->agregarFinal($request->input('codigo'),$request->input('nota')); 
     }
 
-    public function agregarFinal($codigo, $nota){
+    /**
+     * Agrega un cursada al usuario logueado
+     *
+     * @param string $codigo recibe un parametro que es el codigo de la materia
+     * @param string $nota recibe un parametro que es la nota de la materia
+     * @return view muestra la vista de las materias
+     */
+    public function agregarFinal(string $codigo, string $nota){
         $user = new RepoUser(Auth::user()->email);
 
         //verifico si puede rendir
-        if($user->curso($codigo) && $user->puedeRendir($codigo))
+        if($user->curso($codigo) && $user->puedeRendir($codigo)){
             RepoHistorial::update($user->email, $codigo, $nota);
-        else
+            return redirect('/')->with("status-success","Final agregado");   
+        }else
             return redirect('/')->with("status-error","No cumple con las correlativas"); 
 
-       return redirect('/')->with("status-success","Final agregado");   
     }
     
-    public function eliminarFinal($codigo){
+    /**
+     * Elimina un final al usuario logueado
+     *
+     * @param string $codigo  recibe a traves de un form-data el codigo de la materia
+     * @return view muestra la vista de las materias
+     */
+    public function eliminarFinal(string $codigo){
 
         $user = new RepoUser(Auth::user()->email);
 
@@ -100,7 +141,11 @@ class MateriasController extends Controller
     }
     
 
-
+    /**
+     * Vista de las materias, carga las materias por cuatrimestre y el usuario
+     *
+     * @return void muestra la vista de las materias
+     */
     private function vistaMaterias(){
         
         $cuatris = RepoMateria::findByCuatri();

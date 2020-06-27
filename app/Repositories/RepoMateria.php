@@ -12,9 +12,8 @@ class RepoMateria {
      * @return array arreglo de materias
      */
     public static function all(){
-        return Materia::orderBy('cuatrimestre', 'ASC')->get()->load('cantidadAlumnos'); 
+        return Materia::orderBy('cuatrimestre', 'ASC')->get(); 
     }
-
 
     /**
      * Retorna un arreglo de arreglos. Cada sub arreglo tiene las materias de un cuatrimestre. El indice del subarrreglo coincide cn su cuatrimestre 
@@ -30,6 +29,7 @@ class RepoMateria {
                                     ->get()
                                     ->load('correlativas_cursadas_cursadas')
                                     ->load('correlativas_cursadas_aprobadas')
+                                    ->load('correlativas_aprobadas_cursadas') 
                                     ->load('correlativas_aprobadas_aprobadas'); 
         }
         return $cuatris;
@@ -47,9 +47,17 @@ class RepoMateria {
     }
 
 
+    /**
+     * Actualiza una materia con codigo $id y los datos de $data
+     *
+     * @param array $data datos a actualizar de la materia
+     * @param string $id codigo de la materia
+     * @return boolean true si se edito, false caso contrario
+     */
     public static function update(array $data, string $id): bool{
         $materia = self::find($id);
 
+        //si la imagen es nula, no la actualizo
         if(is_null($data['profesor_imagen'])) {
             unset($data['profesor_imagen']);
         }
@@ -82,6 +90,12 @@ class RepoMateria {
         return Materia::find($id)->load('correlativas_cursadas_cursadas','correlativas_cursadas_aprobadas','correlativas_aprobadas_aprobadas','correlativas_aprobadas_cursadas');
     }
 
+    /**
+     * Retorna el promedio historico de la materia
+     *
+     * @param string $codigo codigo de la materia
+     * @return float promedio historico de la materia
+     */
     public static function promedio(string $codigo): float{
         $promedio = RepoHistorial::allFinalesByMateria($codigo)->avg('final');
         if(is_null($promedio))

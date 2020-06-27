@@ -88,7 +88,7 @@
         </nav>
         <div class="col-12">
             <p><a href="https://www.uns.edu.ar/" target="_blank" class="text-info">Página oficial de la UNS</a></p>
-            <p><a href="https://www.uns.edu.ar/g3w" target="_blank" class="text-info">Guaraní</a></p>
+            <p><a href="https://www.uns.edu.ar/g3w" target="_blank" class="text-info">Guaraní3W</a></p>
             <p><a href="https://www.uns.edu.ar/alumnos/aulas" target="_blank" class="text-info">Aulas, Horarios y Materias</a></p>
             <p><a href="https://moodle.uns.edu.ar/catedras/" target="_blank" class="text-info">Moodle-UNS</a></p>
             <p><a href="https://www.uns.edu.ar/alumnos/calendario-academico" target="_blank" class="text-info">Calendario Académico</a></p>

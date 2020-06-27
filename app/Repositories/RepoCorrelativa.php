@@ -6,29 +6,22 @@ use App\Models\Correlativa;
 
 class RepoCorrelativa {
 
-    
+
+    /**
+     * Crea una correlativa
+     *
+     * @param array $data datos de la correlativa
+     */
     public static function create(array  $data){
         return Correlativa::create($data);
     }
 
-    
-    public static function update(array $data, string $materia, $requerida): Correlativa{
-        $correlativa = self::find($id);
-
-        if(!is_null($correlativa))
-            return $correlativa->update($data);
-
-        return null;
-    }
-
-
-    public static function delete(string $id): Correlativa{
-        $Correlativa = self::find($id);
-        $Correlativa->delete();
-        return $Correlativa;
-    }
-
-
+    /**
+     * Busca una correlativa
+     *
+     * @param string $id
+     * @return Correlativa
+     */
     public static function findById(string $id): Correlativa{
         return Correlativa::find($id)->load('correlativas');
     }

@@ -14,7 +14,14 @@ class RepoUser {
         $this->email = $email;
     }
 
-    public function puedeCursar($codigo){
+
+    /**
+     * Verifica si el usuario cumple con las correlativas
+     *
+     * @param string $codigo codigo de la materia
+     * @return boolean retorna true si puede cursar, falso caso contrario
+     */
+    public function puedeCursar(string $codigo): bool{
         $materia = RepoMateria::find($codigo);
         
 
@@ -29,7 +36,13 @@ class RepoUser {
 
     }
     
-    public function puedeRendir($codigo){
+    /**
+     * Verifica si tiene las correaltivas apra rendir un final
+     *
+     * @param string $codigo codigo de la materia
+     * @return boolean true si puede rendir, falso caso contrario
+     */
+    public function puedeRendir(string $codigo): bool{
         $materia = RepoMateria::find($codigo);
 
         //verifico cursada
@@ -61,19 +74,40 @@ class RepoUser {
         return true;
     }
 
-    public function curso($codigo){
+    /**
+     * Verifica el estado cursado de una materia
+     *
+     * @param string $codigo codigo de la materia
+     * @return boolean true si curso, falso si no
+     */
+    public function curso(string $codigo): bool{
         return RepoHistorial::curso($this->email, $codigo);
     }
 
-    public function aprobo($codigo){
+    /**
+     * Verifica el estado aprobado  de una materia
+     *
+     * @param string $codigo codigo de la materia
+     * @return boolean true si aprobo, falso si no
+     */
+    public function aprobo(string $codigo): bool{
         return RepoHistorial::aprobo($this->email, $codigo);
     }
 
-    public function nota($codigo){
+    /**
+     * Nota final de una materia
+     *
+     * @param string $codigo codigo de la materia
+     * @return float nota final de la materia
+     */
+    public function nota(string $codigo): float{
         return RepoHistorial::findFinal($this->email, $codigo)->final;
     }
 
-    public function cursadas(){
+    /**
+     * Materias cursadas por un usuario
+     */
+    public function cursadas(): array{
         $cursadas = array();
         $materias = RepoMateria::all();
 
@@ -84,6 +118,12 @@ class RepoUser {
             }
         return $cursadas;
     }
+
+
+    /**
+     * Materias aprobadas por un usuario
+     */
+
     public function aprobadas(){
         $aprobadas = array();
         $materias = RepoMateria::all();
@@ -96,7 +136,12 @@ class RepoUser {
         return $aprobadas;
     }
 
-    public function promedio(){
+    /**
+     * promedio del alumno
+     *
+     * @return float nota promedio de una alumno
+     */
+    public function promedio(): float{
         return RepoHistorial::allFinalesByAlumno($this->email)->avg('final');
     }
 }

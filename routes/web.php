@@ -13,10 +13,6 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-/* Route::get('/', function () {
-    return view('welcome');
-});
- */
 Auth::routes();
 
 # para cursadas
@@ -31,15 +27,27 @@ Route::get('/final/eliminar/final/{codigo}', 'MateriasController@eliminarFinal')
 
 # para materias
 Route::get('/', 'MateriasController@index')->name('materias');
-Route::post('/agregar-materia', 'PanelController@agregarMateria')->name('agregar-materia');
-Route::post('/editar-materia/{codigo}', 'PanelController@editarMateria')->name('editar-materia');
-Route::get('/materia/eliminar/{codigo}', 'PanelController@deleteMateria')->name('eliminar-materia')->middleware(['auth', 'password.confirm']);;
+Route::post('/agregar-materia', 'PanelController@agregarMateria')
+                                                                ->middleware(['auth', 'check.admin', 'password.confirm'])
+                                                                ->name('agregar-materia');
+
+Route::post('/editar-materia/{codigo}', 'PanelController@editarMateria')
+                                                                ->name('editar-materia')
+                                                                ->middleware(['auth', 'check.admin', 'password.confirm']);
+
+Route::get('/materia/eliminar/{codigo}', 'PanelController@deleteMateria')
+                                                                ->name('eliminar-materia')
+                                                                ->middleware(['auth', 'check.admin', 'password.confirm']);
 
 #correlativas
-Route::post('/agregar-correlativa', 'PanelController@agregarCorrelativa')->name('agregar-correlativa');
+Route::post('/agregar-correlativa', 'PanelController@agregarCorrelativa')
+                                                                ->name('agregar-correlativa')
+                                                                ->middleware(['auth', 'check.admin', 'password.confirm']);
 
 
 # panel
-Route::get('/panel-materias', 'PanelController@materias')->name('panel-materias')->middleware(['auth', 'password.confirm']);
+Route::get('/panel-materias', 'PanelController@materias')
+                                            ->name('panel-materias')
+                                            ->middleware(['auth', 'check.admin', 'password.confirm']);
 
 

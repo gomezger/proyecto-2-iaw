@@ -8,11 +8,7 @@ use App\Repositories\RepoCorrelativa;
 
 class PanelController extends Controller
 {
-    public function __construct(){
-        $this->middleware('auth-admin');
-    }
-
-
+    
     public function materias(){
         $materias = RepoMateria::all();
         return view('panel/materias',["materias"=>$materias]);
