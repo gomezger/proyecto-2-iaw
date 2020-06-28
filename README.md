@@ -58,8 +58,8 @@ Resultado: <br>
 >{ <br>
 > access_token: [token]<br>
 > token_type: Bearer <br>  
-> expires_at : AAAA-MM-DD HH:MM:SS<br>
-> \}
+> expires_at : AAAA-MM-DD HH:MM:SS <br>
+> \} <br>
 
 ### Materias cursadas
 
@@ -74,7 +74,7 @@ Resultado: <br>
 >{ <br>
 > status: [success or error]<br>
 > cursadas: es un arreglo que tiene {"alumno","materia","final"}
-> }
+>  \}
 
 ### Materias aprobadas
 
