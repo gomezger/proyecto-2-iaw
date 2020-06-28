@@ -50,15 +50,15 @@ headers:  <br>
 
 Body: json<br>
 >{ <br>
->\t"email": "mail@dominio.com", <br>
->\t"password": "1234" <br>
+>    "email": "mail@dominio.com", <br>
+>    "password": "1234" <br>
 >} <br>
 
 Resultado: <br>
 >{ <br>
->\taccess_token: [token]<br>
->\ttoken_type: Bearer <br>  
->\texpires_at : AAAA-MM-DD HH:MM:SS<br>
+> access_token: [token]<br>
+> token_type: Bearer <br>  
+> expires_at : AAAA-MM-DD HH:MM:SS<br>
 > \}
 
 ### Materias cursadas
@@ -72,8 +72,8 @@ headers:  <br>
 
 Resultado: <br>
 >{ <br>
->\tstatus: [success or error]<br>
->\tcursadas: es un arreglo que tiene {"alumno","materia","final"}
+> status: [success or error]<br>
+> cursadas: es un arreglo que tiene {"alumno","materia","final"}
 > }
 
 ### Materias aprobadas
@@ -87,8 +87,8 @@ headers:  <br>
 
 Resultado: <br>
 >{ <br>
->\tstatus: [success or error]<br>
->\tcursadas: es un arreglo que tiene {"alumno","materia","final"}<br>
+> status: [success or error]<br>
+> cursadas: es un arreglo que tiene {"alumno","materia","final"}<br>
 > \}
 
 ### Promedio alumno
@@ -102,8 +102,8 @@ headers:  <br>
 
 Resultado: <br>
 >{ <br>
->\tstatus: [success or error]<br>
->\tpromedio: [float]<br>
+> status: [success or error]<br>
+> promedio: [float]<br>
 > \}
 
 ### Promedio de materias
@@ -117,6 +117,6 @@ headers:  <br>
 
 Resultado: <br>
 >{ <br>
->\tstatus: [success or error]<br>
->\tpromedios: es un arreglo que tiene {"materia","promedio"}<br>
+> status: [success or error]<br>
+> promedios: es un arreglo que tiene {"materia","promedio"}<br>
 > \}
