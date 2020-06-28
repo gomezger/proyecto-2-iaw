@@ -52,7 +52,7 @@ Body: json<br>
 >{ <br>
 >    "email": "mail@dominio.com", <br>
 >    "password": "1234" <br>
->} <br>
+> \} <br>
 
 Resultado: <br>
 >{ <br>
