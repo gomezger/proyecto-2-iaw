@@ -3,7 +3,7 @@ Germán A. Gómez
 
 ## Descripción
 
-<b>Historial de cursadas</b>: el alumno de Licenciatura en Cs. de la Computación puede agregar que materias tiene cursadas y cuales aprobadas con 'x' nota. El sistema le avisará que materias puede cursar ya que verifica las correlativas.
+<b>Historial de cursadas</b>: el alumno de Licenciatura en Cs. de la Computación puede agregar las materias que tiene cursadas y/o aprobadas. El sistema le avisará que materias puede cursar ya que verifica las correlativas.
 
 ## Detalles de implementación (alto nivel)
 
