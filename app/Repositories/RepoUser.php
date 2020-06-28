@@ -142,6 +142,10 @@ class RepoUser {
      * @return float nota promedio de una alumno
      */
     public function promedio(): float{
-        return RepoHistorial::allFinalesByAlumno($this->email)->avg('final');
+        $prom = RepoHistorial::allFinalesByAlumno($this->email)->avg('final');
+        if(!is_null($prom))
+            return $prom;
+        else
+            return 0;
     }
 }
