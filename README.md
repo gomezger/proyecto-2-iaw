@@ -33,12 +33,36 @@ Germán A. Gómez
 
 ### Obtener token de acceso
 
->>url: /api/auth/login <br>
->>headers:  <br>
->>>Accept: application/json <br>
->>>X-Requested-With: XMLHttpRequest
+>url: /api/auth/login <br>
+>method: Post  <br>
+>headers:  <br>
+>>Accept: application/json <br>
+>>X-Requested-With: XMLHttpRequest<br>
 
+>Body: json<br>
+>>{ <br>
+>>    "email": "mail@dominio.com", <br>
+>>    "password": "1234" <br>
+>>} <br>
 
+>Resultado: <br>
+>>{ <br>
+>> access_token: [token]<br>
+>> token_type: Bearer <br>  
+>> expires_at : AAAA-MM-DD HH:MM:SS<br>
+>> }
 
+### Materias cursadas
 
+>url: /api/cursadas <br>
+>method: GET  <br>
+>headers:  <br>
+>>Accept: application/json <br>
+>>X-Requested-With: XMLHttpRequest<br>
+>>Authorization: Bearer [token]<br>
 
+>Resultado: <br>
+>>{ <br>
+>> status: [success or error]<br>
+>> cursadas: es un arreglo que tiene {"alumno","materia","final"} <br>  
+>> }
