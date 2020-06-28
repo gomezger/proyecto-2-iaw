@@ -24,7 +24,7 @@ class AuthController extends Controller
         ]);
         $user->save();
         return response()->json([
-            'message' => 'Successfully created user!'], 201);
+            'message' => 'Usario creado de manera exitosa'], 201);
     }
 
 
@@ -63,7 +63,7 @@ class AuthController extends Controller
     {
         $request->user()->token()->revoke();
         return response()->json(['message' => 
-            'Successfully logged out']);
+            'Cerró sesión de manera exitosa']);
     }
 
 

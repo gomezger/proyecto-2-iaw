@@ -26,7 +26,8 @@ Route::get('/final/agregar-final', 'MateriasController@agregarFinalPost')->name(
 Route::get('/final/eliminar/final/{codigo}', 'MateriasController@eliminarFinal')->name('eliminar-final');
 
 # para materias
-Route::get('/', 'MateriasController@index')->name('materias');
+Route::get('/', 'MateriasController@index');
+Route::get('/mis-materias', 'MateriasController@index')->name('materias');
 Route::post('/agregar-materia', 'PanelController@agregarMateria')
                                                                 ->middleware(['auth', 'check.admin', 'password.confirm'])
                                                                 ->name('agregar-materia');

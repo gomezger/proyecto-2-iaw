@@ -59,13 +59,13 @@ class MateriasController extends Controller
             if($user->puedeCursar($codigo))
                 RepoHistorial::insert($user->email, $codigo);
             else
-                return redirect('/')->with("status-error","No cumple con las correlativas"); 
+                return redirect('/mis-materias')->with("status-error","No cumple con las correlativas"); 
 
         else
-            return redirect('/')->with("status-error","Ya cursó esta materia"); 
+            return redirect('/mis-materias')->with("status-error","Ya cursó esta materia"); 
 
 
-        return redirect('/')->with("status-success","Cursada agregada");   
+        return redirect('/mis-materias')->with("status-success","Cursada agregada");   
     }
     
 
@@ -116,9 +116,9 @@ class MateriasController extends Controller
         //verifico si puede rendir
         if($user->curso($codigo) && $user->puedeRendir($codigo)){
             RepoHistorial::update($user->email, $codigo, $nota);
-            return redirect('/')->with("status-success","Final agregado");   
+            return redirect('/mis-materias')->with("status-success","Final agregado");   
         }else
-            return redirect('/')->with("status-error","No cumple con las correlativas"); 
+            return redirect('/mis-materias')->with("status-error","No cumple con las correlativas"); 
 
     }
     

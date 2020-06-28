@@ -1,4 +1,4 @@
-<div class="clearfix col-12 col-md-4 pt-4 pt-md-0 pl-0 pl-md-5 float-left ">
+<div id="lateral" class="clearfix col-12 col-md-4 pt-4 pt-md-0 pl-0 pl-md-5 float-left ">
     @if(session('status-error'))
         <div class="alert alert-danger">
             {{session('status-error')}}
@@ -96,3 +96,12 @@
         </div>
     </div>
 </div>
+
+
+
+@if(session('status-error') || session('status-success') || $errors->any())
+        <script>
+            var e = document.getElementById("lateral");
+            e.scrollIntoView(true);
+        </script>
+@endif
