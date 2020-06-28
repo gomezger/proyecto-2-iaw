@@ -49,8 +49,8 @@ Resultado: <br>
 >{ <br>
 > access_token: [token]<br>
 > token_type: Bearer <br>  
-> expires_at : AAAA-MM-DD HH:MM:SS
-> }
+> expires_at : AAAA-MM-DD HH:MM:SS<br>
+> \}
 
 ### Materias cursadas
 
@@ -79,12 +79,12 @@ headers:  <br>
 Resultado: <br>
 >{ <br>
 > status: [success or error]<br>
-> cursadas: es un arreglo que tiene {"alumno","materia","final"}
-> }
+> cursadas: es un arreglo que tiene {"alumno","materia","final"}<br>
+> \}
 
-### promedio alumno
+### Promedio alumno
 
-url: /api/promedio <br>
+url: /api/promedioAlumno <br>
 method: GET  <br>
 headers:  <br>
 >Accept: application/json <br>
@@ -94,5 +94,20 @@ headers:  <br>
 Resultado: <br>
 >{ <br>
 > status: [success or error]<br>
-> promedio: [float]
-> }
+> promedio: [float]<br>
+> \}
+
+### Promedio de materias
+
+url: /api/promedioMaterias <br>
+method: GET  <br>
+headers:  <br>
+>Accept: application/json <br>
+>X-Requested-With: XMLHttpRequest<br>
+>Authorization: Bearer [token]<br>
+
+Resultado: <br>
+>{ <br>
+> status: [success or error]<br>
+> promedios: es un arreglo que tiene {"materia","promedio"}<br>
+> \}
