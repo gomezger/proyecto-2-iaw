@@ -33,6 +33,12 @@ Germán A. Gómez
 
 ### Obtener token de acceso
 
+>>url: /api/auth/login <br>
+>>headers:  <br>
+>>>Accept: application/json <br>
+>>>X-Requested-With: XMLHttpRequest
+
+
 
 
 
