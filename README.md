@@ -29,6 +29,15 @@ Germán A. Gómez
     <li><b>Promedio materia</b>: retorna el promedio de la materia</li>
 </ul>
 
+## Consideraciones Generales
+
+Fueron eliminas ciertas funcionalidades por pedido de la catedra:
+<ul>
+    <li>Comentarios sobre las materias</li>
+    <li>Carreras: originalmente era para varias carreras. Ahora es solo para licenciatura</li>
+    <li>Correlativas: no se pueden eliminar correlativas</li>
+</ul>
+
 ## Probar ApiRest
 
 ### Obtener token de acceso
