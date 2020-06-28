@@ -50,14 +50,14 @@ headers:  <br>
 
 Body: json<br>
 >{ <br>
->\t"email": "mail@dominio.com", <br>
->\t"password": "1234" <br>
->} <br>
+>   "email": "mail@dominio.com", <br>
+>   "password": "1234" <br>
+> \} <br>
 
 Resultado: <br>
 >{ <br>
->\taccess_token: [token]<br>
->\ttoken_type: Bearer <br>  
+>   access_token: [token]<br>
+>\t token_type: Bearer <br>  
 >\texpires_at : AAAA-MM-DD HH:MM:SS<br>
 > \}
 
