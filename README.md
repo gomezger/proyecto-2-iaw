@@ -1,9 +1,18 @@
 # Proyecto 2: historial de cursadas en Laravel
+
 Germán A. Gómez
+
+Página en heroku: https://proyecto2-german.herokuapp.com/
 
 ## Descripción
 
 <b>Historial de cursadas</b>: el alumno de Licenciatura en Cs. de la Computación puede agregar las materias que tiene cursadas y/o aprobadas. El sistema le avisará que materias puede cursar ya que verifica las correlativas.
+
+## Instalación
+
+> composer install <br>
+> npm install <br>
+> npm run dev <br>
 
 ## Detalles de implementación (alto nivel)
 
@@ -119,4 +128,34 @@ Resultado: <br>
 >{ <br>
 > status: [success or error]<br>
 > promedios: es un arreglo que tiene {"materia","promedio"}<br>
+> \}
+
+### materias que peude cursar
+
+url: /api/a-cursar <br>
+method: GET  <br>
+headers:  <br>
+>Accept: application/json <br>
+>X-Requested-With: XMLHttpRequest<br>
+>Authorization: Bearer [token]<br>
+
+Resultado: <br>
+>{ <br>
+> status: [success or error]<br>
+> materias: es un arreglo que tiene nombre de materias<br>
+> \}
+
+### materias que peude rendir final
+
+url: /api/a-rendir <br>
+method: GET  <br>
+headers:  <br>
+>Accept: application/json <br>
+>X-Requested-With: XMLHttpRequest<br>
+>Authorization: Bearer [token]<br>
+
+Resultado: <br>
+>{ <br>
+> status: [success or error]<br>
+> materias: es un arreglo que tiene nombre de materias<br>
 > \}
