@@ -5,6 +5,12 @@ Germán A. Gómez
 
 <b>Historial de cursadas</b>: el alumno de Licenciatura en Cs. de la Computación puede agregar las materias que tiene cursadas y/o aprobadas. El sistema le avisará que materias puede cursar ya que verifica las correlativas.
 
+## Instalación
+
+> composer install <br>
+> npm install <br>
+> npm run dev <br>
+
 ## Detalles de implementación (alto nivel)
 
 <b>Tipos de usuarios</b>
