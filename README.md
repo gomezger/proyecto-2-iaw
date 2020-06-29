@@ -129,3 +129,33 @@ Resultado: <br>
 > status: [success or error]<br>
 > promedios: es un arreglo que tiene {"materia","promedio"}<br>
 > \}
+
+### materias que peude cursar
+
+url: /api/a-cursar <br>
+method: GET  <br>
+headers:  <br>
+>Accept: application/json <br>
+>X-Requested-With: XMLHttpRequest<br>
+>Authorization: Bearer [token]<br>
+
+Resultado: <br>
+>{ <br>
+> status: [success or error]<br>
+> materias: es un arreglo que tiene nombre de materias<br>
+> \}
+
+### materias que peude rendir final
+
+url: /api/a-rendir <br>
+method: GET  <br>
+headers:  <br>
+>Accept: application/json <br>
+>X-Requested-With: XMLHttpRequest<br>
+>Authorization: Bearer [token]<br>
+
+Resultado: <br>
+>{ <br>
+> status: [success or error]<br>
+> materias: es un arreglo que tiene nombre de materias<br>
+> \}
