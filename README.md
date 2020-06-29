@@ -1,5 +1,8 @@
 # Proyecto 2: historial de cursadas en Laravel
+
 Germán A. Gómez
+
+Página en heroku: https://proyecto2-german.herokuapp.com/
 
 ## Descripción
 
