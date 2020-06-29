@@ -22,8 +22,7 @@ class RepoUser {
      * @return boolean retorna true si puede cursar, falso caso contrario
      */
     public function puedeCursar(string $codigo): bool{
-        $materia = RepoMateria::find($codigo);
-        
+        $materia = RepoMateria::find($codigo);        
 
         if($materia!=[]){        
             if(!$this->tieneCursadas($materia->correlativas_cursadas_cursadas))   
@@ -31,9 +30,7 @@ class RepoUser {
             if(!$this->tieneFinales($materia->correlativas_cursadas_aprobadas))   
                 return false;                        
         }
-
         return true;
-
     }
     
     /**
@@ -56,6 +53,42 @@ class RepoUser {
 
         return true;
 
+    }
+
+    /**
+     * Veririca que materias puede cursar un alumno
+     *
+     * @return array retorna un array con el nombre de las materias
+     */
+    public function materiasACursar(): array{
+        $a_cursar = array();
+        $materias = RepoMateria::all();  
+
+        foreach($materias as $materia){
+            if(!$this->curso($materia->codigo) && $this->puedeCursar($materia->codigo)){
+                array_push($a_cursar, $materia->nombre);
+            }
+        }
+
+        return $a_cursar;
+    }
+
+    /**
+     * Veririca que materias puede rendir un alumno
+     *
+     * @return array retorna un array con el nombre de las materias
+     */
+    public function materiasARendir(): array{
+        $a_rendir = array();
+        $materias = RepoMateria::all();  
+
+        foreach($materias as $materia){
+            if(!$this->aprobo($materia->codigo) && $this->puedeRendir($materia->codigo)){
+                array_push($a_rendir, $materia->nombre);
+            }
+        }
+
+        return $a_rendir;
     }
 
     private function tieneCursadas($correlativas){        

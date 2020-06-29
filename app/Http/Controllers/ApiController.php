@@ -31,6 +31,29 @@ class ApiController extends Controller
         return response()->json($data,200);
     }
 
+    
+    public function ACursar(){     
+        $user = new RepoUser(Auth::user()->email);
+
+        $data = array(
+            "status" => "success",
+            "materias" => $user->materiasACursar()
+        );
+
+        return response()->json($data,200);
+    }
+    
+    public function ARendir(){     
+        $user = new RepoUser(Auth::user()->email);
+
+        $data = array(
+            "status" => "success",
+            "materias" => $user->materiasARendir()
+        );
+
+        return response()->json($data,200);
+    }
+
     public function promedioAlumno(){     
         $user = new RepoUser(Auth::user()->email);
 

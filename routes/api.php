@@ -27,6 +27,8 @@ Route::group(['prefix' => 'auth'], function () {
 Route::group(['middleware' => 'auth:api'], function() {
     Route::get('cursadas', 'ApiController@cursadas');
     Route::get('aprobadas', 'ApiController@aprobadas');
+    Route::get('a-cursar', 'ApiController@ACursar');
+    Route::get('a-rendir', 'ApiController@ARendir');
     Route::get('promedioAlumno', 'ApiController@promedioAlumno');
     Route::get('promedioMaterias', 'ApiController@promedioMaterias');
 });
