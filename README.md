@@ -14,6 +14,13 @@ Página en heroku: https://proyecto2-german.herokuapp.com/
 > npm install <br>
 > npm run dev <br>
 
+## Usuarios de prueba
+<ul>
+    <li><b>Usuario alumno</b>: germang08@hotmail.com y la contraseña es 1234. Tambien se puede registrar por la web.</li>
+    <li><b>Administrador</b>: germang04@gmail.com y la contraseña es 1234.</li>
+</ul>
+
+
 ## Detalles de implementación (alto nivel)
 
 <b>Tipos de usuarios</b>
@@ -45,6 +52,7 @@ Fueron eliminas ciertas funcionalidades por pedido de la catedra:
     <li>Comentarios sobre las materias</li>
     <li>Carreras: originalmente era para varias carreras. Ahora es solo para licenciatura</li>
     <li>Correlativas: no se pueden eliminar correlativas</li>
+    <li>Usuarios: no se pueden crear usuarios administradores desde la web</li>
 </ul>
 
 ## Probar ApiRest
