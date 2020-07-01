@@ -58,6 +58,8 @@ Fueron eliminas ciertas funcionalidades por pedido de la catedra:
 
 ## Probar ApiRest
 
+Coleción de Postman: https://github.com/xeronweb/proyecto-2-iaw/blob/master/proyecto%202%20iaw.postman_collection.json 
+
 ### Obtener token de acceso
 
 url: /api/auth/login <br>
