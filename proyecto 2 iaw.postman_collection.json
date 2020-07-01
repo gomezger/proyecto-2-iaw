@@ -1,0 +1,362 @@
+{
+	"info": {
+		"_postman_id": "69be0183-bf74-4e1a-9a77-8818e9478001",
+		"name": "proyecto 2 iaw",
+		"description": "apirest proyecot 2 de Germán Gómez",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "Get Token",
+			"protocolProfileBehavior": {
+				"disabledSystemHeaders": {
+					"content-type": true
+				}
+			},
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "X-Requested-With",
+						"value": "XMLHttpRequest",
+						"type": "text"
+					},
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"email\": \"germang08@hotmail.com\",\r\n    \"password\": \"1234\"\r\n}"
+				},
+				"url": {
+					"raw": "https://proyecto2-german.herokuapp.com/api/auth/login",
+					"protocol": "https",
+					"host": [
+						"proyecto2-german",
+						"herokuapp",
+						"com"
+					],
+					"path": [
+						"api",
+						"auth",
+						"login"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Registrar usuario",
+			"protocolProfileBehavior": {
+				"disabledSystemHeaders": {
+					"content-type": true
+				}
+			},
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "X-Requested-With",
+						"value": "XMLHttpRequest",
+						"type": "text"
+					},
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"email\": \"mail-prueba@hotmail.com\",\r\n    \"password\": \"123456789\",\r\n    \"password_confirmation\": \"123456789\",\r\n    \"name\": \"Alberto\"\r\n}"
+				},
+				"url": {
+					"raw": "https://proyecto2-german.herokuapp.com/api/auth/signup",
+					"protocol": "https",
+					"host": [
+						"proyecto2-german",
+						"herokuapp",
+						"com"
+					],
+					"path": [
+						"api",
+						"auth",
+						"signup"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Materias cursadas",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "eyJ0eXAiOiJKV1QiLCJhbGciOiJSUzI1NiJ9.eyJhdWQiOiIxNyIsImp0aSI6IjM2MjdlNDZlM2QzZjE5N2VlNWQzYjFmYzgxMTQ1MDFjYzNmMjUwMDFjY2Y3Mzc1MjI3NzFmZjhhOGVmNTMxMDQyYTc0NDc4ODcwMWQ0MDU3IiwiaWF0IjoxNTkzNjQzMzYwLCJuYmYiOjE1OTM2NDMzNjAsImV4cCI6MTYyNTE3OTM2MCwic3ViIjoiNTEiLCJzY29wZXMiOltdfQ.EZI1Wq23EZqRDVlkCgWF8pq8dQ4kd8mweHUg6f5838O6-CCxLtRyA2ShrfWVHViXUNmQXd6i_a7Pl3eLES3dzimdRMlrycP_Tt6vuPorYSF4okjtczNeQjyBXxIgycaHlKOweKN72wdg0XyciN5hjlXBcJ0zB32r5rDz1WY8TmvFip4fKI8q-jHR58qyRHAcq-M11kVma_PS0wBjnQUYj0Bk3ZtOLeKZ1Z54LQaTO6slJzcKt2Jx908CgF9TAXOea2yokh24O_uE9M8dna8nbsGnPwVeawpAavgbSL4wzCzJ4cnqeFE41T9BVfIaMqw3970iLLfEVklFAdbE1VqaI7a5PhG7V0aYXvzFeanAVKYbVRv8jhVk4_1ZvXGEIxF1vlpq1Ow9UQDozzmWZ-z-mbI7NMEw1TwOcdgRJdNY3Gi6VZmMVKJnDjfoMB6xt-k2AaKWxbuGAJz2p7gQTdEpDXF6TbiG3kkE3aA_0zNUvk3VNEle1bqxuc0ukeh45Mz4ZELcTXyZMjlfGXEN0uvvxtdEgTvJEKl4GE8tMfKOiz5nb1h7ufIHm7xSnuCZvaSooGr-ik1_S7QrdB3qKreufev34CzedIEZi07ll6r1ajELd_ZuukCoYWKE_T_iMQbo7OAG4Q9Sf_ZY-5aaFMDojQCn9qBYAz4iNuGDGr7R064",
+							"type": "string"
+						}
+					]
+				},
+				"method": "GET",
+				"header": [
+					{
+						"key": "X-Requested-With",
+						"value": "XMLHttpRequest",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"email\": \"germang08@hotmail.com\",\r\n    \"password\": \"1234\"\r\n}"
+				},
+				"url": {
+					"raw": "https://proyecto2-german.herokuapp.com/api/cursadas",
+					"protocol": "https",
+					"host": [
+						"proyecto2-german",
+						"herokuapp",
+						"com"
+					],
+					"path": [
+						"api",
+						"cursadas"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Materias aprobadas",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "eyJ0eXAiOiJKV1QiLCJhbGciOiJSUzI1NiJ9.eyJhdWQiOiIxNyIsImp0aSI6IjM2MjdlNDZlM2QzZjE5N2VlNWQzYjFmYzgxMTQ1MDFjYzNmMjUwMDFjY2Y3Mzc1MjI3NzFmZjhhOGVmNTMxMDQyYTc0NDc4ODcwMWQ0MDU3IiwiaWF0IjoxNTkzNjQzMzYwLCJuYmYiOjE1OTM2NDMzNjAsImV4cCI6MTYyNTE3OTM2MCwic3ViIjoiNTEiLCJzY29wZXMiOltdfQ.EZI1Wq23EZqRDVlkCgWF8pq8dQ4kd8mweHUg6f5838O6-CCxLtRyA2ShrfWVHViXUNmQXd6i_a7Pl3eLES3dzimdRMlrycP_Tt6vuPorYSF4okjtczNeQjyBXxIgycaHlKOweKN72wdg0XyciN5hjlXBcJ0zB32r5rDz1WY8TmvFip4fKI8q-jHR58qyRHAcq-M11kVma_PS0wBjnQUYj0Bk3ZtOLeKZ1Z54LQaTO6slJzcKt2Jx908CgF9TAXOea2yokh24O_uE9M8dna8nbsGnPwVeawpAavgbSL4wzCzJ4cnqeFE41T9BVfIaMqw3970iLLfEVklFAdbE1VqaI7a5PhG7V0aYXvzFeanAVKYbVRv8jhVk4_1ZvXGEIxF1vlpq1Ow9UQDozzmWZ-z-mbI7NMEw1TwOcdgRJdNY3Gi6VZmMVKJnDjfoMB6xt-k2AaKWxbuGAJz2p7gQTdEpDXF6TbiG3kkE3aA_0zNUvk3VNEle1bqxuc0ukeh45Mz4ZELcTXyZMjlfGXEN0uvvxtdEgTvJEKl4GE8tMfKOiz5nb1h7ufIHm7xSnuCZvaSooGr-ik1_S7QrdB3qKreufev34CzedIEZi07ll6r1ajELd_ZuukCoYWKE_T_iMQbo7OAG4Q9Sf_ZY-5aaFMDojQCn9qBYAz4iNuGDGr7R064",
+							"type": "string"
+						}
+					]
+				},
+				"method": "GET",
+				"header": [
+					{
+						"key": "X-Requested-With",
+						"value": "XMLHttpRequest",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"email\": \"germang08@hotmail.com\",\r\n    \"password\": \"1234\"\r\n}"
+				},
+				"url": {
+					"raw": "https://proyecto2-german.herokuapp.com/api/aprobadas",
+					"protocol": "https",
+					"host": [
+						"proyecto2-german",
+						"herokuapp",
+						"com"
+					],
+					"path": [
+						"api",
+						"aprobadas"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Materias a cursar",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "eyJ0eXAiOiJKV1QiLCJhbGciOiJSUzI1NiJ9.eyJhdWQiOiIxNyIsImp0aSI6IjM2MjdlNDZlM2QzZjE5N2VlNWQzYjFmYzgxMTQ1MDFjYzNmMjUwMDFjY2Y3Mzc1MjI3NzFmZjhhOGVmNTMxMDQyYTc0NDc4ODcwMWQ0MDU3IiwiaWF0IjoxNTkzNjQzMzYwLCJuYmYiOjE1OTM2NDMzNjAsImV4cCI6MTYyNTE3OTM2MCwic3ViIjoiNTEiLCJzY29wZXMiOltdfQ.EZI1Wq23EZqRDVlkCgWF8pq8dQ4kd8mweHUg6f5838O6-CCxLtRyA2ShrfWVHViXUNmQXd6i_a7Pl3eLES3dzimdRMlrycP_Tt6vuPorYSF4okjtczNeQjyBXxIgycaHlKOweKN72wdg0XyciN5hjlXBcJ0zB32r5rDz1WY8TmvFip4fKI8q-jHR58qyRHAcq-M11kVma_PS0wBjnQUYj0Bk3ZtOLeKZ1Z54LQaTO6slJzcKt2Jx908CgF9TAXOea2yokh24O_uE9M8dna8nbsGnPwVeawpAavgbSL4wzCzJ4cnqeFE41T9BVfIaMqw3970iLLfEVklFAdbE1VqaI7a5PhG7V0aYXvzFeanAVKYbVRv8jhVk4_1ZvXGEIxF1vlpq1Ow9UQDozzmWZ-z-mbI7NMEw1TwOcdgRJdNY3Gi6VZmMVKJnDjfoMB6xt-k2AaKWxbuGAJz2p7gQTdEpDXF6TbiG3kkE3aA_0zNUvk3VNEle1bqxuc0ukeh45Mz4ZELcTXyZMjlfGXEN0uvvxtdEgTvJEKl4GE8tMfKOiz5nb1h7ufIHm7xSnuCZvaSooGr-ik1_S7QrdB3qKreufev34CzedIEZi07ll6r1ajELd_ZuukCoYWKE_T_iMQbo7OAG4Q9Sf_ZY-5aaFMDojQCn9qBYAz4iNuGDGr7R064",
+							"type": "string"
+						}
+					]
+				},
+				"method": "GET",
+				"header": [
+					{
+						"key": "X-Requested-With",
+						"value": "XMLHttpRequest",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"email\": \"germang08@hotmail.com\",\r\n    \"password\": \"1234\"\r\n}"
+				},
+				"url": {
+					"raw": "https://proyecto2-german.herokuapp.com/api/a-cursar",
+					"protocol": "https",
+					"host": [
+						"proyecto2-german",
+						"herokuapp",
+						"com"
+					],
+					"path": [
+						"api",
+						"a-cursar"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Materias a rendir",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "eyJ0eXAiOiJKV1QiLCJhbGciOiJSUzI1NiJ9.eyJhdWQiOiIxNyIsImp0aSI6IjM2MjdlNDZlM2QzZjE5N2VlNWQzYjFmYzgxMTQ1MDFjYzNmMjUwMDFjY2Y3Mzc1MjI3NzFmZjhhOGVmNTMxMDQyYTc0NDc4ODcwMWQ0MDU3IiwiaWF0IjoxNTkzNjQzMzYwLCJuYmYiOjE1OTM2NDMzNjAsImV4cCI6MTYyNTE3OTM2MCwic3ViIjoiNTEiLCJzY29wZXMiOltdfQ.EZI1Wq23EZqRDVlkCgWF8pq8dQ4kd8mweHUg6f5838O6-CCxLtRyA2ShrfWVHViXUNmQXd6i_a7Pl3eLES3dzimdRMlrycP_Tt6vuPorYSF4okjtczNeQjyBXxIgycaHlKOweKN72wdg0XyciN5hjlXBcJ0zB32r5rDz1WY8TmvFip4fKI8q-jHR58qyRHAcq-M11kVma_PS0wBjnQUYj0Bk3ZtOLeKZ1Z54LQaTO6slJzcKt2Jx908CgF9TAXOea2yokh24O_uE9M8dna8nbsGnPwVeawpAavgbSL4wzCzJ4cnqeFE41T9BVfIaMqw3970iLLfEVklFAdbE1VqaI7a5PhG7V0aYXvzFeanAVKYbVRv8jhVk4_1ZvXGEIxF1vlpq1Ow9UQDozzmWZ-z-mbI7NMEw1TwOcdgRJdNY3Gi6VZmMVKJnDjfoMB6xt-k2AaKWxbuGAJz2p7gQTdEpDXF6TbiG3kkE3aA_0zNUvk3VNEle1bqxuc0ukeh45Mz4ZELcTXyZMjlfGXEN0uvvxtdEgTvJEKl4GE8tMfKOiz5nb1h7ufIHm7xSnuCZvaSooGr-ik1_S7QrdB3qKreufev34CzedIEZi07ll6r1ajELd_ZuukCoYWKE_T_iMQbo7OAG4Q9Sf_ZY-5aaFMDojQCn9qBYAz4iNuGDGr7R064",
+							"type": "string"
+						}
+					]
+				},
+				"method": "GET",
+				"header": [
+					{
+						"key": "X-Requested-With",
+						"type": "text",
+						"value": "XMLHttpRequest"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"email\": \"germang08@hotmail.com\",\r\n    \"password\": \"1234\"\r\n}"
+				},
+				"url": {
+					"raw": "https://proyecto2-german.herokuapp.com/api/a-rendir",
+					"protocol": "https",
+					"host": [
+						"proyecto2-german",
+						"herokuapp",
+						"com"
+					],
+					"path": [
+						"api",
+						"a-rendir"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Promedio del alumno",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "eyJ0eXAiOiJKV1QiLCJhbGciOiJSUzI1NiJ9.eyJhdWQiOiIxNyIsImp0aSI6IjM2MjdlNDZlM2QzZjE5N2VlNWQzYjFmYzgxMTQ1MDFjYzNmMjUwMDFjY2Y3Mzc1MjI3NzFmZjhhOGVmNTMxMDQyYTc0NDc4ODcwMWQ0MDU3IiwiaWF0IjoxNTkzNjQzMzYwLCJuYmYiOjE1OTM2NDMzNjAsImV4cCI6MTYyNTE3OTM2MCwic3ViIjoiNTEiLCJzY29wZXMiOltdfQ.EZI1Wq23EZqRDVlkCgWF8pq8dQ4kd8mweHUg6f5838O6-CCxLtRyA2ShrfWVHViXUNmQXd6i_a7Pl3eLES3dzimdRMlrycP_Tt6vuPorYSF4okjtczNeQjyBXxIgycaHlKOweKN72wdg0XyciN5hjlXBcJ0zB32r5rDz1WY8TmvFip4fKI8q-jHR58qyRHAcq-M11kVma_PS0wBjnQUYj0Bk3ZtOLeKZ1Z54LQaTO6slJzcKt2Jx908CgF9TAXOea2yokh24O_uE9M8dna8nbsGnPwVeawpAavgbSL4wzCzJ4cnqeFE41T9BVfIaMqw3970iLLfEVklFAdbE1VqaI7a5PhG7V0aYXvzFeanAVKYbVRv8jhVk4_1ZvXGEIxF1vlpq1Ow9UQDozzmWZ-z-mbI7NMEw1TwOcdgRJdNY3Gi6VZmMVKJnDjfoMB6xt-k2AaKWxbuGAJz2p7gQTdEpDXF6TbiG3kkE3aA_0zNUvk3VNEle1bqxuc0ukeh45Mz4ZELcTXyZMjlfGXEN0uvvxtdEgTvJEKl4GE8tMfKOiz5nb1h7ufIHm7xSnuCZvaSooGr-ik1_S7QrdB3qKreufev34CzedIEZi07ll6r1ajELd_ZuukCoYWKE_T_iMQbo7OAG4Q9Sf_ZY-5aaFMDojQCn9qBYAz4iNuGDGr7R064",
+							"type": "string"
+						}
+					]
+				},
+				"method": "GET",
+				"header": [
+					{
+						"key": "X-Requested-With",
+						"type": "text",
+						"value": "XMLHttpRequest"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"email\": \"germang08@hotmail.com\",\r\n    \"password\": \"1234\"\r\n}"
+				},
+				"url": {
+					"raw": "https://proyecto2-german.herokuapp.com/api/promedioAlumno",
+					"protocol": "https",
+					"host": [
+						"proyecto2-german",
+						"herokuapp",
+						"com"
+					],
+					"path": [
+						"api",
+						"promedioAlumno"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Promedios historicos de las materias",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "eyJ0eXAiOiJKV1QiLCJhbGciOiJSUzI1NiJ9.eyJhdWQiOiIxNyIsImp0aSI6IjM2MjdlNDZlM2QzZjE5N2VlNWQzYjFmYzgxMTQ1MDFjYzNmMjUwMDFjY2Y3Mzc1MjI3NzFmZjhhOGVmNTMxMDQyYTc0NDc4ODcwMWQ0MDU3IiwiaWF0IjoxNTkzNjQzMzYwLCJuYmYiOjE1OTM2NDMzNjAsImV4cCI6MTYyNTE3OTM2MCwic3ViIjoiNTEiLCJzY29wZXMiOltdfQ.EZI1Wq23EZqRDVlkCgWF8pq8dQ4kd8mweHUg6f5838O6-CCxLtRyA2ShrfWVHViXUNmQXd6i_a7Pl3eLES3dzimdRMlrycP_Tt6vuPorYSF4okjtczNeQjyBXxIgycaHlKOweKN72wdg0XyciN5hjlXBcJ0zB32r5rDz1WY8TmvFip4fKI8q-jHR58qyRHAcq-M11kVma_PS0wBjnQUYj0Bk3ZtOLeKZ1Z54LQaTO6slJzcKt2Jx908CgF9TAXOea2yokh24O_uE9M8dna8nbsGnPwVeawpAavgbSL4wzCzJ4cnqeFE41T9BVfIaMqw3970iLLfEVklFAdbE1VqaI7a5PhG7V0aYXvzFeanAVKYbVRv8jhVk4_1ZvXGEIxF1vlpq1Ow9UQDozzmWZ-z-mbI7NMEw1TwOcdgRJdNY3Gi6VZmMVKJnDjfoMB6xt-k2AaKWxbuGAJz2p7gQTdEpDXF6TbiG3kkE3aA_0zNUvk3VNEle1bqxuc0ukeh45Mz4ZELcTXyZMjlfGXEN0uvvxtdEgTvJEKl4GE8tMfKOiz5nb1h7ufIHm7xSnuCZvaSooGr-ik1_S7QrdB3qKreufev34CzedIEZi07ll6r1ajELd_ZuukCoYWKE_T_iMQbo7OAG4Q9Sf_ZY-5aaFMDojQCn9qBYAz4iNuGDGr7R064",
+							"type": "string"
+						}
+					]
+				},
+				"method": "GET",
+				"header": [
+					{
+						"key": "X-Requested-With",
+						"type": "text",
+						"value": "XMLHttpRequest"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"email\": \"germang08@hotmail.com\",\r\n    \"password\": \"1234\"\r\n}"
+				},
+				"url": {
+					"raw": "https://proyecto2-german.herokuapp.com/api/promedioMaterias",
+					"protocol": "https",
+					"host": [
+						"proyecto2-german",
+						"herokuapp",
+						"com"
+					],
+					"path": [
+						"api",
+						"promedioMaterias"
+					]
+				}
+			},
+			"response": []
+		}
+	],
+	"auth": {
+		"type": "bearer"
+	},
+	"protocolProfileBehavior": {}
+}
