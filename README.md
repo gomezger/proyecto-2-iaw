@@ -2,8 +2,8 @@
 
 Germán A. Gómez
 
-Página en heroku: https://proyecto2-german.herokuapp.com/
-Video de presentación: https://www.youtube.com/watch?v=lN5RY_TekR4 (perdón por el audio, tuve problemas con el micro y las otras alternativas que tenian eran peores)
+Página en heroku: https://proyecto2-german.herokuapp.com/ <br>
+Video de presentación: https://www.youtube.com/watch?v=lN5RY_TekR4 (perdón por el audio, tuve problemas con el micro y las otras alternativas que tenian eran peores) <br>
 
 ## Descripción
 
