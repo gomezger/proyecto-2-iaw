@@ -54,6 +54,7 @@ Fueron eliminas ciertas funcionalidades por pedido de la catedra:
     <li>Carreras: originalmente era para varias carreras. Ahora es solo para licenciatura</li>
     <li>Correlativas: no se pueden eliminar correlativas</li>
     <li>Usuarios: no se pueden crear usuarios administradores desde la web</li>
+    <li>Notas: no se pueden cargar notas desaprobadas</li>
 </ul>
 
 ## Probar ApiRest
