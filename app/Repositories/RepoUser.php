@@ -66,7 +66,7 @@ class RepoUser {
 
         foreach($materias as $materia){
             if(!$this->curso($materia->codigo) && $this->puedeCursar($materia->codigo)){
-                array_push($a_cursar, $materia->nombre);
+                array_push($a_cursar, $materia);
             }
         }
 
@@ -84,7 +84,7 @@ class RepoUser {
 
         foreach($materias as $materia){
             if(!$this->aprobo($materia->codigo) && $this->puedeRendir($materia->codigo)){
-                array_push($a_rendir, $materia->nombre);
+                array_push($a_rendir, $materia);
             }
         }
 
